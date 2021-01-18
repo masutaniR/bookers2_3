@@ -17,12 +17,12 @@
         <ul class="navbar-nav ml-auto">
           <% if user_signed_in? %>
           <li>
-            <%= link_to root_path do %>
+            <%= link_to current_user do %>
               <i class="fas fa-home nav-link text-light">Home</i>
             <% end %>
           </li>
           <li>
-            <%= link_to root_path do %>
+            <%= link_to users_path do %>
               <i class="fas fa-users nav-link text-light">Users</i>
             <% end %>
           </li>
@@ -64,6 +64,7 @@
     </header>
 
     <main>
+      <p id="notice"></p>
       <%= yield %>
     </main>
 

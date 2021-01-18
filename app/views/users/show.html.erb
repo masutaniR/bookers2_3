@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: '100x100', class: 'rounded' %>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th>name</th>
+            <th>
+              <%= @user.name %>
+            </th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th>
+              <%= @user.introduction %>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to edit_user_path(@user) do %>
+        <i class="fas fa-user-cog btn btn-block btn-outline-secondary"></i>
+      <% end %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to user_path(@user) do %>
+                <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size: '40x40', class: "rounded" %>
+              <% end %>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
