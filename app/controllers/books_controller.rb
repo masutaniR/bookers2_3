@@ -24,11 +24,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-<<<<<<< HEAD
     @book = Book.find(params[:id])
-=======
-      @book = Book.find(params[:id])
->>>>>>> 387e4019f1a1d1128961dcd10505b835452eba4a
     if @book.user == current_user
       render :edit
     else
