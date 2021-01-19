@@ -27,7 +27,7 @@
             <% end %>
           </li>
           <li>
-            <%= link_to root_path do %>
+            <%= link_to books_path do %>
               <i class="fas fa-book-open nav-link text-light">Books</i>
             <% end %>
           </li>
@@ -64,7 +64,9 @@
     </header>
 
     <main>
-      <p id="notice"></p>
+      <p id="notice">
+        <%= notice %>
+      </p>
       <%= yield %>
     </main>
 
