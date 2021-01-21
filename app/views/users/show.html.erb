@@ -13,6 +13,7 @@
             <th>Title</th>
             <th>Opinion</th>
             <th>Comments</th>
+            <th>Good!</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +32,9 @@
             </td>
             <td>
               <%= link_to book.comments.count, book_path(book) %>
+            </td>
+            <td>
+              <%= link_to book.favorites.count, book_path(book) %>
             </td>
           </tr>
           <% end %>

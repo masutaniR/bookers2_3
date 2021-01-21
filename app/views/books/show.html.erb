@@ -43,6 +43,20 @@
       </table>
     <div class="row">
       <div class="col-md-6">
+        <% if @book.favorited_by?(current_user) %>
+          <p>
+            <%= link_to book_favorites_path(@book), method: :delete do %>
+              ♥ Good! <%= @book.favorites.count %>
+            <% end %>
+          </p>
+          <% else %>
+          <p>
+            <%= link_to book_favorites_path(@book), method: :post do %>
+              ♡ Good! <%= @book.favorites.count %>
+            <% end %>
+          </p>
+        <% end %>
+
         <h4>Comments</h4>
         <p><%= pluralize(@book.comments.count, "comment") %></p>
         <% @book.comments.each do |comment| %>
