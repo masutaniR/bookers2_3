@@ -4,6 +4,6 @@
   <% end %>
 <% else %>
   <%= link_to book_favorites_path(book), method: :post, remote: true do %>
-    <span class="btn btn-sm btn-primary">♡ Like <%= book.favorites.count %></span>
+    <span class="btn btn-sm btn-outline-primary">♡ Like <%= book.favorites.count %></span>
   <% end %>
 <% end %>
