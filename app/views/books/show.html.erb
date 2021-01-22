@@ -28,7 +28,7 @@
               <%= link_to @book.title, book_path(@book) %>
             </td>
             <td>
-              <%= @book.body %>
+              <%= safe_join(@book.body.split("\n"), tag(:br)) %>
             </td>
             <% if @book.user == current_user %>
               <td>
@@ -41,10 +41,11 @@
           </tr>
         </tbody>
       </table>
+      <hr>
     <div class="row">
       <div class="col-md-6">
 
-        <div id="favorites_button">
+        <div id="favorites_button"  class="mb-3">
           <%= render partial: 'favorites/favorite', locals: { book: @book} %>
         </div>
 
