@@ -56,8 +56,12 @@
           <%= render partial: 'comments/index', locals: { book: @book} %>
         </div>
 
+        <div id="comments_error">
+          <%= render partial: 'layouts/error', locals: { model: @comment} %>
+        </div>
+
         <%= form_with(model:[@book, @comment]) do |f| %>
-        <div class="form-group mt-5">
+        <div class="form-group">
           <%= f.text_area :comment, placeholder: 'New Comment', class: 'form-control' %>
         </div>
         <div class="form-group">
