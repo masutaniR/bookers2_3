@@ -16,7 +16,7 @@
             <th>Title</th>
             <th>Opinion</th>
             <th>Comments</th>
-            <th>Like</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +37,9 @@
               <%= link_to book.comments.count, book_path(book) %>
             </td>
             <td>
-              <%= link_to book.favorites.count, book_path(book) %>
+              <div id="favorites_button_<%= book.id %>"  class="mb-3">
+                <%= render partial: 'favorites/favorite', locals: { book: book} %>
+              </div>
             </td>
           </tr>
           <% end %>
