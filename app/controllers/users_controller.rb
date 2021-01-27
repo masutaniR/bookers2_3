@@ -32,6 +32,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def hide
+    @user = User.find(params[:id])
+    @user.update(is_valid: false)
+    reset_session
+    redirect_to root_path, notice: 'ありがとうございました。またのご利用を心よりお待ちしております。'
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
