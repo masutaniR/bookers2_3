@@ -1,0 +1,17 @@
+<div class="container">
+
+  <h2>退会</h2>
+
+<%= form_with model: @user, url: users_hide_path, local: true do |f| %>
+
+  <div class="field mt-2">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "退会", class: 'btn btn-primary btn-sm my-2' %>
+  </div>
+<% end %>
+
+</div>

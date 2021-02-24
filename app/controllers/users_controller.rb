@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.where(is_valid: true)
     @user = current_user
     @new_book = Book.new
 
@@ -32,11 +32,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def hide_confirm
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to current_user
+    end
+  end
+
   def hide
     @user = User.find(params[:id])
-    @user.update(is_valid: false)
-    reset_session
-    redirect_to root_path, notice: 'ありがとうございました。またのご利用を心よりお待ちしております。'
+    if @user.valid_password?(params[:user][:password])
+      @user.update(is_valid: false)
+      reset_session
+      redirect_to root_path, notice: 'ありがとうございました。またのご利用を心よりお待ちしております。'
+    else
+      redirect_to edit_user_path(@user), alert: 'パスワードが違います'
+    end
   end
 
   private

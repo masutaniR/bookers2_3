@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   root 'homes#top'
   get '/home/about' => 'homes#about'
   resources :users, only: [:index, :show, :edit, :update]
-  put "/users/:id/hide" => "users#hide", as: 'users_hide'
+  get '/users/:id/hide_confirm' => 'users#hide_confirm', as: 'users_hide_confirm'
+  patch "/users/:id/hide" => "users#hide", as: 'users_hide'
   resources :books, except: [:new] do
     resources :comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
